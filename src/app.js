@@ -1,5 +1,12 @@
-// Assuming the API endpoint for fetching equipment is '/rest/Equipment'
+
 const API_URL = 'http://localhost:4280/rest/Equipment';
+
+async function list() {
+    const endpoint = '/data-api/rest/Equipment';
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    console.table(data.value);
+  }
 
 // Fetch data from the API and populate the dropdown
 fetch(API_URL)
@@ -7,11 +14,10 @@ fetch(API_URL)
     .then(data => {
         const dropdown = document.getElementById('equipmentDropdown');
         
-        // Assuming the name of the equipment is in a column called 'name' in the data
         data.forEach(equipment => {
             const option = document.createElement('option');
-            option.value = equipment.id; // Assuming there's an 'id' field in your data
-            option.textContent = equipment.choice; // Modify 'name' if the field name is different
+            option.value = equipment.id; 
+            option.textContent = equipment.choice; 
             dropdown.appendChild(option);
         });
     })
