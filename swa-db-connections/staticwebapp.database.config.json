@@ -37,6 +37,15 @@
           "role": "anonymous"
         }
       ]
+    },
+    "Equipment": {
+      "source": "dbo.downequipment_dropdown",
+      "permissions": [
+        {
+          "actions": ["*"],
+          "role": "anonymous"
+        }
+      ]
     }
   }
 }
