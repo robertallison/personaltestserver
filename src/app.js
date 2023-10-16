@@ -11,7 +11,7 @@ fetch(API_URL)
         data.forEach(equipment => {
             const option = document.createElement('option');
             option.value = equipment.id; // Assuming there's an 'id' field in your data
-            option.textContent = equipment.name; // Modify 'name' if the field name is different
+            option.textContent = equipment.choice; // Modify 'name' if the field name is different
             dropdown.appendChild(option);
         });
     })
