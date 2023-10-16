@@ -1,8 +1,8 @@
 
-const API_URL = 'http://localhost:4280/rest/Equipment';
+const API_URL = 'http://localhost:4280/rest/DownEquipmentDropdown';
 
 async function list() {
-    const endpoint = '/data-api/rest/Equipment';
+    const endpoint = '/data-api/rest/DownEquipmentDropdown';
     const response = await fetch(endpoint);
     const data = await response.json();
     console.table(data.value);
