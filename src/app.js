@@ -16,7 +16,7 @@ fetch(API_URL)
         
         data.forEach(equipment => {
             const option = document.createElement('option');
-            option.value = equipment.id; 
+            // option.value = equipment.id; 
             option.textContent = equipment.choice; 
             dropdown.appendChild(option);
         });
