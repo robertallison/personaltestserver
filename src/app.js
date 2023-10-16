@@ -1,5 +1,5 @@
 
-const API_URL = 'http://localhost:4280/rest/DownEquipmentDropdown';
+const API_URL = 'http://localhost:4280/rest';
 
 async function list() {
     const endpoint = '/data-api/rest/DownEquipmentDropdown';
