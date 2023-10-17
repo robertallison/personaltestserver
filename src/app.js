@@ -1,15 +1,29 @@
+const BASE_URL = 'http://localhost:4280';
 
-const API_URL = 'http://localhost:4280/rest/DownEquipmentDropdown';
+async function listEquipment() {
+    try {
+        const endpoint = `${BASE_URL}/data-api/rest/DownEquipmentDropdown`;
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        console.table(data.value);
+    } catch (error) {
+        console.error("There was an error fetching the equipment list:", error);
+    }
+}
 
 async function list() {
-    const endpoint = '/data-api/rest/DownEquipmentDropdown';
-    const response = await fetch(endpoint);
-    const data = await response.json();
-    console.table(data.value);
-  }
+    try {
+        const endpoint = `${BASE_URL}/data-api/rest/Person`;
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        console.table(data.value);
+    } catch (error) {
+        console.error("There was an error fetching the person list:", error);
+    }
+}
 
 // Fetch data from the API and populate the dropdown
-fetch(API_URL)
+fetch(`${BASE_URL}/rest/DownEquipmentDropdown`)
     .then(response => response.json())
     .then(data => {
         const dropdown = document.getElementById('equipmentDropdown');
@@ -17,18 +31,9 @@ fetch(API_URL)
         data.forEach(equipment => {
             const option = document.createElement('option');
             option.value = equipment.choice; 
-            // option.textContent = equipment.choice; 
             dropdown.appendChild(option);
         });
     })
     .catch(error => {
-        console.error("There was an error fetching the equipment data:", error);
+        console.error("There was an error fetching the equipment dropdown data:", error);
     });
-
-
-    async function list() {
-        const endpoint = '/data-api/rest/Person';
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        console.table(data.value);
-      }
