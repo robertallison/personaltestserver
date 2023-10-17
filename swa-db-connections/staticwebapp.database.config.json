@@ -30,7 +30,7 @@
   },
   "entities": {
     "Person": {
-      "source": "dbo.MyTestPersonTable",
+      "source": "dbo.downreason_dropdown",
       "permissions": [
         {
           "actions": ["*"],
