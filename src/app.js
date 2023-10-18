@@ -57,7 +57,7 @@ fetch(API_URL)
                 const option = document.createElement('option');
                 option.value = item.id;           // Setting the value attribute to the id property
                 option.textContent = item.choice;   // Setting the displayed text to the name property
-                dropdown.appendChild(option);
+                dropdown.appendChild(option);       //adding comment to test if site is behind
             });
             
     
