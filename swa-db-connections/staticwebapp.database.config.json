@@ -46,6 +46,15 @@
           "role": "anonymous"
         }
       ]
+    },
+    "Output": {
+      "source": "dbo.plantdowntime_outputdata1",
+      "permissions": [
+        {
+          "actions":["*"],
+          "role": "anonymous"
+        }
+      ]
     }
   }
 }
