@@ -69,30 +69,33 @@ fetch(API_URL)
     // Call the function to populate the dropdown
     populateDropdown();
 
+// ... (your populateDropdown function remains unchanged)
+
 // Function to handle the submission
 async function handleSubmit() {
-    // Get the selected value from the dropdown
+    // Get the selected value (name) from the dropdown
     const dropdown = document.getElementById('namesDropdown');
-    const selectedValue = dropdown.value;
+    const selectedName = dropdown.options[dropdown.selectedIndex].textContent;
 
     // The endpoint to which you'll send the data for insertion into the database
-    const submitEndpoint = '/data-api/rest/plantdowntime_outputdata1';
+    const submitEndpoint = '/rest/Output';
 
     try {
-        // Send a POST request with the selected data
+        // Send a POST request with the selected name
         const response = await fetch(submitEndpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ choiceId: selectedValue })
+            body: JSON.stringify({ user_name: selectedName })
+
         });
 
         // Handle the response (e.g., check if it's successful)
         if (response.ok) {
-            console.log("Choice successfully inserted into the database!");
+            console.log("Name successfully inserted into the database!");
         } else {
-            console.error("Failed to insert choice into the database:", await response.text());
+            console.error("Failed to insert name into the database:", await response.text());
         }
 
     } catch (error) {
@@ -102,4 +105,3 @@ async function handleSubmit() {
 
 // Add an event listener to the submit button
 document.getElementById('submitButton').addEventListener('click', handleSubmit);
-//comment for second post
