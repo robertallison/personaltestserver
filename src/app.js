@@ -53,12 +53,13 @@ fetch(API_URL)
             dropdown.innerHTML = '';
     
             // Assuming data.value is an array of names
-            data.value.forEach(name => {
+            data.value.forEach(item => {
                 const option = document.createElement('option');
-                option.value = name;
-                option.textContent = name;
+                option.value = item.id;           // Setting the value attribute to the id property
+                option.textContent = item.choice;   // Setting the displayed text to the name property
                 dropdown.appendChild(option);
             });
+            
     
         } catch (error) {
             console.error("Error fetching or processing data:", error);
