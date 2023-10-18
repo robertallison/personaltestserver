@@ -32,7 +32,7 @@ fetch(API_URL)
         const data = await response.json();
         console.table(data.value);
       }
-      
+
       async function namesFull() {
         const endpoint = '/data-api/rest/Names';
         const response = await fetch(endpoint);
@@ -53,7 +53,7 @@ fetch(API_URL)
             dropdown.innerHTML = '';
     
             // Assuming data.value is an array of names
-            data.ngvalue.forEach(name => {
+            data.value.forEach(name => {
                 const option = document.createElement('option');
                 option.value = name;
                 option.textContent = name;
