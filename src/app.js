@@ -1,5 +1,5 @@
 
-const API_URL = 'http://localhost:4280/rest/DownEquipmentDropdown';
+const API_URL = 'http://localhost:4280/rest/testNames';
 
 // Fetch data from the API and populate the dropdown
 fetch(API_URL)
@@ -9,7 +9,7 @@ fetch(API_URL)
         
         data.forEach(equipment => {
             const option = document.createElement('option');
-            option.value = equipment.choice; 
+            option.value = names.choice; 
             // option.textContent = equipment.choice; 
             dropdown.appendChild(option);
         });
