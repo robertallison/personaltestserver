@@ -78,7 +78,7 @@ async function handleSubmit() {
     const selectedName = dropdown.options[dropdown.selectedIndex].textContent;
 
     // The endpoint to which you'll send the data for insertion into the database
-    const submitEndpoint = '/rest/Output';
+    const submitEndpoint = 'https://jolly-coast-0c44d6e0f.3.azurestaticapps.net/rest/Output';
 
     try {
         // Send a POST request with the selected name
