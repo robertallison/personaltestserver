@@ -32,6 +32,13 @@ fetch(API_URL)
         const data = await response.json();
         console.table(data.value);
       }
+      
+      async function namesFull() {
+        const endpoint = '/data-api/rest/Names';
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        console.table(data.value);
+      }
 
       async function populateDropdown() {
         const endpoint = '/data-api/rest/Names';
