@@ -48,8 +48,8 @@ fetch(API_URL)
             // Assuming data.value is an array of names
             data.value.forEach(name => {
                 const option = document.createElement('option');
-                option.value = choice;
-                option.textContent = name;
+                option.id = name;
+                option.choice = name;
                 dropdown.appendChild(option);
             });
     
