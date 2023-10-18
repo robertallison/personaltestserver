@@ -46,7 +46,7 @@ fetch(API_URL)
             dropdown.innerHTML = '';
     
             // Assuming data.value is an array of names
-            data.value.forEach(name => {
+            data.ngvalue.forEach(name => {
                 const option = document.createElement('option');
                 option.value = name;
                 option.textContent = name;
