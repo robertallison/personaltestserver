@@ -32,3 +32,32 @@ fetch(API_URL)
         const data = await response.json();
         console.table(data.value);
       }
+
+      async function populateDropdown() {
+        const endpoint = '/data-api/rest/Names';
+    
+        try {
+            const response = await fetch(endpoint);
+            const data = await response.json();
+    
+            const dropdown = document.getElementById('namesDropdown');
+    
+            // Clear any existing options
+            dropdown.innerHTML = '';
+    
+            // Assuming data.value is an array of names
+            data.value.forEach(name => {
+                const option = document.createElement('option');
+                option.value = name;
+                option.textContent = name;
+                dropdown.appendChild(option);
+            });
+    
+        } catch (error) {
+            console.error("Error fetching or processing data:", error);
+        }
+    }
+    
+    // Call the function to populate the dropdown
+    populateDropdown();
+    
