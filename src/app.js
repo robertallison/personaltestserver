@@ -26,7 +26,7 @@ fetch(API_URL)
         console.table(data.value);
       }
 
-      async function list() {
+      async function names() {
         const endpoint = '/data-api/rest/Names';
         const response = await fetch(endpoint);
         const data = await response.json();
