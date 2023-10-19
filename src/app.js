@@ -69,7 +69,6 @@ fetch(API_URL)
     // Call the function to populate the dropdown
     populateDropdown();
 
-// ... (your populateDropdown function remains unchanged)
 
 // Function to handle the submission
 async function handleSubmit() {
@@ -78,7 +77,9 @@ async function handleSubmit() {
     const selectedName = dropdown.options[dropdown.selectedIndex].textContent;
 
     // The endpoint to which you'll send the data for insertion into the database
-    const submitEndpoint = 'https://jolly-coast-0c44d6e0f.3.azurestaticapps.net/rest/Output';
+    // const submitEndpoint = 'https://jolly-coast-0c44d6e0f.3.azurestaticapps.net/rest/Output';
+    const submitEndpoint = '/data-api/rest/Output';
+
 
     try {
         // Send a POST request with the selected name
@@ -91,7 +92,7 @@ async function handleSubmit() {
 
         });
 
-        // Handle the response (e.g., check if it's successful)
+        // Handle the response 
         if (response.ok) {
             console.log("Name successfully inserted into the database!");
         } else {
@@ -106,4 +107,4 @@ async function handleSubmit() {
 // Add an event listener to the submit button
 document.getElementById('submitButton').addEventListener('click', handleSubmit);
 
-//adding a comment at the end to push twice 2
+//adding a comment at the end to push twice 2git a
