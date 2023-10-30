@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:4280/rest/testNames';
 fetch(API_URL)
     .then(response => response.json())
     .then(data => {
-        const dropdown = document.getElementById('equipmentDropdown');
+        const dropdown = document.getElementById('namesDropdown');
         
         data.forEach(equipment => {
             const option = document.createElement('option');
@@ -17,6 +17,7 @@ fetch(API_URL)
     .catch(error => {
         console.error("There was an error fetching the equipment data:", error);
     });
+
 //random code for push
 
     // async function list() {
