@@ -122,5 +122,3 @@ document.getElementById('timestamp').addEventListener('click', function() {
 //have to work out how to cut down on costs by lowering the amount of push's
 
 //extra comment
-
-//new pushes
