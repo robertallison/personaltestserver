@@ -17,7 +17,7 @@ fetch(API_URL)
     .catch(error => {
         console.error("There was an error fetching the equipment data:", error);
     });
-
+//random code for push
 
     // async function list() {
     //     const endpoint = '/data-api/rest/Person';
