@@ -7,7 +7,7 @@ fetch(API_URL)
     .then(data => {
         const dropdown = document.getElementById('namesDropdown');
         
-        data.forEach(equipment => {
+        data.forEach(name => {
             const option = document.createElement('option');
             option.value = names.choice; 
             // option.textContent = equipment.choice; 

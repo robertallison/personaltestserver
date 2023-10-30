@@ -38,60 +38,6 @@
         }
       ]
     },
-    "Equipment": {
-      "source": "dbo.downequipment_dropdown",
-      "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
-        }
-      ]
-    },
-    "Reason": {
-      "source": "dbo.downreason_dropdown",
-      "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
-        }
-      ]
-    },
-    "Plant": {
-      "source": "dbo.plant_dropdown",
-      "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
-        }
-      ]
-    },
-    "Primary": {
-      "source": "dbo.primaryfeedsource_dropdown",
-      "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
-        }
-      ]
-    },
-    "Conditions": {
-      "source": "dbo.runconditions_dropdown",
-      "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
-        }
-      ]
-    },
-    "Secondary": {
-      "source": "dbo.secondaryfeedsource_dropdown",
-      "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
-        }
-      ]
-    },
     "Names": {
       "source": "dbo.testNames",
       "permissions": [
