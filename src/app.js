@@ -21,6 +21,7 @@ fetch(API_URL)
 
     // async function list() {
     //     const endpoint = '/data-api/rest/Person';
+
     //     const response = await fetch(endpoint);
     //     const data = await response.json();
     //     console.table(data.value);
@@ -119,3 +120,4 @@ document.getElementById('timestamp').addEventListener('click', function() {
 //have to keep adding this commit to the code so that it will render properly when i push it to github
 
 //have to work out how to cut down on costs by lowering the amount of push's
+
