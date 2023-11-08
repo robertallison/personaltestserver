@@ -7,6 +7,22 @@
 //     const currentTime = new Date();
 //     console.log(currentTime.toLocaleTimeString());
 // });
+async function names() {
+    const endpoint = '/data-api/rest/Names';
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    console.table(data.value);
+  }
+
+  async function namesFull() {
+    const endpoint = '/data-api/rest/Names';
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    console.table(data.value);
+  }
+
+
+
 
 console.log("before populating dropdown");
 //populates the dropdown for names
