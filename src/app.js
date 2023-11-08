@@ -114,16 +114,3 @@ document.getElementById('timestamp').addEventListener('click', function() {
     const currentTime = new Date();
     console.log(currentTime.toLocaleTimeString());
 });
-
-//adding a comment at the end to push twice 3git a
-
-
-//have to keep adding this commit to the code so that it will render properly when i push it to github
-
-//have to work out how to cut down on costs by lowering the amount of push's
-
-//extra comment
-
-
-
-// last test code its 1 am

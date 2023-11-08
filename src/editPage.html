@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="editPage.css">
+    <title>Equipment Dropdown</title>
+</head>
+
+<body>
+    <!-- <div class="top-bar">
+        <img src="CapitalLogo.jpeg" alt="Capital Logo" id="logo">
+    </div> -->
+
+    
+    <!-- <div>
+        <button id="timestamp">Timestamp Test</button>
+    </div> -->
+
+    <div>
+        <h4>1. Plant</h4>
+        <select id="plantDropdown">
+            <option value="Delta">Delta</option>
+            <option value="Pugmill">Pugmill</option>
+            <option value="Solms">Solms</option>
+            <option value="Poteet">Poteet</option>
+        </select>
+    </div>
+
+    <div>
+        <h4>2. Today's Date</h4>
+        <input type="date" name="date" id="date" placeholder="Enter the date">
+    </div>
+<div>
+    <h4>3. Your Name</h4>
+    <select id="nameDropdown">
+        <option value="Robert">Robert</option>
+        <option value="Tom">Tom</option>
+
+    </select>
+</div>
+
+
+    <div>
+        <h4>4. Primary Raw Feed Source</h4>
+        <select id="primaryFeed">
+            <option value="none">None</option>
+            <option value="bench1">Bench 1</option>
+            <option value="bench2">Bench 2</option>
+        </select>
+    </div>
+
+    <div>
+        <h4>5.Raw Feed Source - Blast Date</h4>
+        <input type="date" name="date" id="blastDate" placeholder="Enter the blast date">
+    </div>
+
+    <div class="checkbox-container">
+        <h4>6. Truck Size/Loads Hauled to Primary</h4>
+        <label>
+            <input type="checkbox" name="option1" value="Option 1" id="checkboxOption1">
+            35 Ton
+        </label>
+        <input type="text" id="textInputOption1" style="display: none;" placeholder="Enter details for 35 Ton">
+    </div>
+    
+    <div class="checkbox-container">
+        <label>
+            <input type="checkbox" name="option2" value="Option 2" id="checkboxOption2">
+            40 Ton
+        </label>
+        <input type="text" id="textInputOption2" style="display: none;" placeholder="Enter details for 40 Ton">
+    </div>
+    
+    <div class="checkbox-container">
+        <label>
+            <input type="checkbox" name="option3" value="Option 3" id="checkboxOption3">
+            50 Ton
+        </label>
+        <input type="text" id="textInputOption3" style="display: none;" placeholder="Enter details for 50 Ton">
+    </div>
+    
+    <div class="checkbox-container">
+        <label>
+            <input type="checkbox" name="option4" value="Option 4" id="checkboxOption4">
+            60 Ton
+        </label>
+        <input type="text" id="textInputOption4" style="display: none;" placeholder="Enter details for 60 Ton">
+    </div>
+    
+    <div class="checkbox-container">
+        <label>
+            <input type="checkbox" name="option5" value="Option 5" id="checkboxOption5">
+            70 Ton
+        </label>
+        <input type="text" id="textInputOption5" style="display: none;" placeholder="Enter details for 70 Ton">
+    </div>
+    
+    <div>
+        <h4>7. Tons Crushed in Primary (from scales, if possible)</h4>
+        <input type="number" placeholder="Tons crushed Primary">
+    </div>
+    <div>
+        <h4>8. Tons Produced at Dry Plant</h4>
+        <input type="number" placeholder="Tons crushed Dry Plant">
+    </div>
+    <div>
+        <h4>9. Dry Plant Sceduled Hours - Exclude planned safety meetings, start up/shut down, and inspection time scheduled at least 24 hours in advance</h4>
+        <input type="number" placeholder="Dry Plant Scheduled Hours">
+    </div>
+    <div>
+        <h4>10. Dry Plant Run Hours (actual running hours)</h4>
+        <input type="number" placeholder="Dry Plant Run Hours">
+    </div>
+    <div>
+        <h4>11a. Non-Operational Downtime Hours</h4>
+        <input type="number" placeholder="Non Operational Downtime Hours">
+        <h4>11b. Non-Operational Downtime Comments</h4>
+        <input type="text" placeholder="Non operational comments">
+    </div>
+
+    <div class="flex-container">
+        <h4>12a. Primary Down Equipment</h4>
+        <select id="primaryEquipment1">
+            <option value="Belt">Belt</option>
+            <option value="Gear">Gear</option>
+        </select>
+        <h4>12b. Primary Down Reason</h4>
+        <select id="primaryReason1">
+            <option value="Broken">Broken</option>
+            <option value="Power Off">Power Failure</option>
+        </select>
+        <h4>12c. Additional Details</h4>
+        <input type="text" placeholder="Additional Details 1">
+    </div>
+
+    <div class="flex-container">
+        <h4>13a. Primary Down Equipment 2</h4>
+        <select id="primaryEquipment2">
+            <option value="Belt">Belt</option>
+            <option value="Gear">Gear</option>
+        </select>
+        <h4>13b. Primary Down Reason 2</h4>
+        <select id="primaryReason2">
+            <option value="Broken">Broken</option>
+            <option value="Power Off">Power Failure</option>
+        </select>
+        <h4>13c. Additional Details</h4>
+        <input type="text" placeholder="Additional Details 2">
+    </div>
+
+    <div>
+        <h4>14. Run Condition Factors/Issues</h4>
+        <select id="runFactors">
+            <option value="Wet Feed">Wet Feed</option>
+            <option value="Missing Employee">Missing Employee</option>
+        </select>
+    </div>
+    <div>
+        <h4>15. Secondary/Wet Plant</h4>
+        <select id="secondaryplantDropdown">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    </div>
+    <div>
+        <h4>16. Wet Plant Feed Source</h4>
+        <select id="wetSource">
+            <option value="Surge Pile">Surge Pile</option>
+            <option value="Load Fed">Loader Fed</option>
+        </select>
+    </div>
+
+    <div>
+        <h4>17. Tons Produced at Wet Plant</h4>
+        <input type="number" placeholder="Tons Produced Wet Plant">
+    </div>
+
+
+    <div>
+        <h4>18. Wet Plant Scheduled Hours</h4>
+        <input type="number" placeholder="Wet Plant Scheduled Hours">
+    </div>
+
+    <div>
+        <h4>19. Wet Plant Operating Hours</h4>
+        <input type="number" placeholder="Wet Plant Operating Hours">
+    </div>
+    <div>
+        <h4>20a. Non-Operational Downtime Hours</h4>
+        <input type="number" placeholder="Non Operational Downtime">
+        <h4>20b. Non-Operational Downtime Comments</h4>
+        <input type="text" placeholder="Non Operational Downtime Comments">
+        <h4>20c. Additional Details (if needed)</h4>
+        <input type="text" placeholder="Additional Details (if needed)">
+    </div>
+
+    <div class="flex-container">
+        <h4>21a. Secondary Down Equipment</h4>
+        <select id="secondaryEquip1">
+            <option value="Tractor">Tractor</option>
+            <option value="Lathe">Lathe</option>
+        </select>
+        <h4>21b. Secondary Down Reason</h4>
+        <select id="secondaryReason1">
+            <option value="Broken">Broken</option>
+            <option value="Does Not Work">Does not Work</option>
+        </select>
+        <h4>21c. Additional Details (if needed)</h4>
+        <input type="text" placeholder="Additional Details">
+    </div>
+
+    <div class="flex-container">
+        <h4>22a. Secondary Down Equipment 2</h4>
+        <select id="secondaryEquip2">
+            <option value="Lawn Mower">Lawn Mower</option>
+            <option value="Scythe">Scythe</option>
+        </select>
+        <h4>22b. Secondary Down Reason 2</h4>
+        <select id="secondaryReason2">
+            <option value="Broken">Broken</option>
+            <option value="Does Not Work">Does not Work</option>
+        </select>
+        <h4>22c. Additional Details</h4>
+        <input type="text" placeholder="Additional Details">
+    </div>
+
+    <div>
+        <h4>23. Wet Plant Run Condition Factors/Issues</h4>
+        <select id="wetplantrunfactors">
+            <option value=" Clay Heavy Material">Clay heavy material</option>
+            <option value="Weather">Weather</option>
+        </select>
+    </div>
+
+    <div>
+        <button id="submitButton">Submit</button>
+    </div>
+
+
+    <script src="editPage.js"></script>
+</body>
+
+</html>

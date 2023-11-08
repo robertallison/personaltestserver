@@ -1,0 +1,44 @@
+
+  
+    table {
+        width: 100%;
+        border-collapse: collapse; 
+    }
+
+    
+    th {
+        background-color: #076224;
+        color: white;
+        padding: 10px 15px;
+        text-align: left;
+    }
+
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(odd) {
+        background-color: #e6ffe6;
+    }
+
+    td {
+        padding: 8px 12px;
+        border: 1px solid #ddd; 
+    }
+
+    #resultTable td, #resultTable th {
+        text-align: center;  
+        vertical-align: middle; 
+        padding: 8px; 
+    }
+    
+    .red-row {
+        background-color: red !important;
+        color: white;
+    }
+    
+    .red-text {
+        color: red;
+        font-weight: bold;
+    }
+    
