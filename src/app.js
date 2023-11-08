@@ -114,3 +114,9 @@ document.getElementById('timestamp').addEventListener('click', function() {
     const currentTime = new Date();
     console.log(currentTime.toLocaleTimeString());
 });
+
+
+
+function editPage() {
+    window.location.href = 'editPage.html';
+  }

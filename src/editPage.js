@@ -11,6 +11,7 @@
 const currentTime = new Date();
 console.log(currentTime.toLocaleTimeString());
 
+
 document.addEventListener("DOMContentLoaded", function() {
     // Utility function to handle checkbox interactions
     function setupCheckboxListener(checkboxId, textInputId) {
@@ -32,6 +33,33 @@ document.addEventListener("DOMContentLoaded", function() {
     setupCheckboxListener("checkboxOption5", "textInputOption5");
 });
 
+//populates the dropdown for names
+async function populateDropdown() {
+        const endpoint = '/data-api/rest/Names';
+    
+        try {
+            const response = await fetch(endpoint);
+            const data = await response.json();
+    
+            const dropdown = document.getElementById('namesDropdown');
+    
+            // Clear any existing options
+            dropdown.innerHTML = '';
+    
+            // Assuming data.value is an array of names
+            data.value.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.id;           // Setting the value attribute to the id property
+                option.textContent = item.choice;   // Setting the displayed text to the name property
+                dropdown.appendChild(option);       //adding comment to test if site is behind
+            });
+            
+    
+        } catch (error) {
+            console.error("Error fetching or processing data:", error);
+        }
+    }
+    populateDropdown();
 
 document.getElementById("submitButton").addEventListener("click", function(event) {
     event.preventDefault();  // Prevent default form submission
