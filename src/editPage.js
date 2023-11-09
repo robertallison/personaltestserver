@@ -7,51 +7,52 @@
 //     const currentTime = new Date();
 //     console.log(currentTime.toLocaleTimeString());
 // });
-async function names() {
-    const endpoint = '/data-api/rest/Names';
-    const response = await fetch(endpoint);
-    const data = await response.json();
-    console.table(data.value);
-  }
-
-  async function namesFull() {
-    const endpoint = '/data-api/rest/Names';
-    const response = await fetch(endpoint);
-    const data = await response.json();
-    console.table(data.value);
-  }
 
 
 
 
 console.log("before populating dropdown");
-//populates the dropdown for names
+
+// Populates the dropdown for names
 async function populateDropdown() {
     const endpoint = '/data-api/rest/Names';
 
     try {
         const response = await fetch(endpoint);
+
+        // Check that the response was successful
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
+        console.log("Data received:", data); // Log the data to ensure it's correct
 
         const dropdown = document.getElementById('namesDropdown');
+
+        // Check if the data.value is actually an array
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
 
         // Clear any existing options
         dropdown.innerHTML = '';
 
-        // Assuming data.value is an array of names
+        // Iterate over the array of names
         data.value.forEach(item => {
             const option = document.createElement('option');
-            option.value = item.id;           // Setting the value attribute to the id property
-            option.textContent = item.choice;   // Setting the displayed text to the name property
-            dropdown.appendChild(option);       //adding comment to test if site is behind
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
         });
-        
 
     } catch (error) {
         console.error("Error fetching or processing data:", error);
     }
 }
+
 populateDropdown();
+
 
 console.log("after calling populateDropdown function");
 
