@@ -1,3 +1,5 @@
+const API_URL = 'http://localhost:4280/rest/testNames';
+
 // Event listener for DOMContentLoaded to ensure the DOM is fully loaded before executing any script
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
