@@ -219,7 +219,7 @@ populateEquipDropdown4();
 
 
 // Function to populate the feed source dropdown
-async function populatePrimaryFeedDropdown4() {
+async function populatePrimaryFeed() {
     const endpoint = '/data-api/rest/PrimaryFeed';
 
     try {
@@ -231,7 +231,7 @@ async function populatePrimaryFeedDropdown4() {
         const data = await response.json();
         console.log("Data received:", data);
 
-        const dropdown = document.getElementById('primaryfeed');
+        const dropdown = document.getElementById('primaryFeed');
         if (!Array.isArray(data.value)) {
             throw new Error('data.value is not an array');
         }
@@ -249,6 +249,140 @@ async function populatePrimaryFeedDropdown4() {
     }
 }
 populatePrimaryFeed();
+
+// Function to populate the down reason dropdown
+async function populateDownReasonDropdown() {
+    const endpoint = '/data-api/rest/DownReason';
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('primaryReason1');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populateDownReasonDropdown();
+
+
+// Function to populate the down reason dropdown
+async function populateDownReasonDropdown2() {
+    const endpoint = '/data-api/rest/DownReason';
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('primaryReason2');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populateDownReasonDropdown2();
+
+
+// Function to populate the down reason dropdown
+async function populateDownReasonDropdown3() {
+    const endpoint = '/data-api/rest/DownReason';
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('secondaryReason1');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populateDownReasonDropdown3();
+
+// Function to populate the down reason dropdown
+async function populateDownReasonDropdown4() {
+    const endpoint = '/data-api/rest/DownReason';
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('secondaryReason2');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populateDownReasonDropdown4();
+
+
+
+
 
 
 

@@ -65,6 +65,15 @@
         }
       ]
     },
+    "DownReason": {
+      "source": "dbo.downreason_dropdown",
+      "permissions": [
+        {
+          "actions":["*"],
+          "role": "anonymous"
+        }
+      ]
+    },
     "Output": {
       "source": "dbo.plantdowntime_outputdata1",
       "permissions": [
