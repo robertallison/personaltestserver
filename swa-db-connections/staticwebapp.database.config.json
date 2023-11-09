@@ -29,15 +29,6 @@
     }
   },
   "entities": {
-    "Person": {
-      "source": "dbo.MyTestPersonTable",
-      "permissions": [
-        {
-          "actions": ["*"],
-          "role": "anonymous"
-        }
-      ]
-    },
     "Names": {
       "source": "dbo.testNames",
       "permissions": [
