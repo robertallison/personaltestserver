@@ -23,6 +23,69 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// Function to populate the names dropdown
+async function populateDropdown() {
+    const endpoint = '/data-api/rest/Names';
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('namesDropdown');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+
+// Function to populate the plant dropdown
+async function populatePlantDropdown() {
+    const endpoint = '/data-api/rest/Plants';
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('plantDropdown');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populatePlantDropdown;
+
 // Function to collect form data
 function collectFormData() {
     const currentTime = new Date();
@@ -66,36 +129,6 @@ function collectFormData() {
     };
 }
 
-// Function to populate the names dropdown
-async function populateDropdown() {
-    const endpoint = '/data-api/rest/Names';
-
-    try {
-        const response = await fetch(endpoint);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log("Data received:", data);
-
-        const dropdown = document.getElementById('namesDropdown');
-        if (!Array.isArray(data.value)) {
-            throw new Error('data.value is not an array');
-        }
-
-        dropdown.innerHTML = '';
-        data.value.forEach(item => {
-            const option = document.createElement('option');
-            option.value = item.id;
-            option.textContent = item.choice;
-            dropdown.appendChild(option);
-        });
-
-    } catch (error) {
-        console.error("Error fetching or processing data:", error);
-    }
-}
 
 // Function to setup checkbox listener
 function setupCheckboxListener(checkboxId, textInputId) {
