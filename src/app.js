@@ -28,21 +28,21 @@ fetch(API_URL)
     //   }
 
       async function names() {
-        const endpoint = '/data-api/rest/Names';
+        const endpoint = '/rest/Names';
         const response = await fetch(endpoint);
         const data = await response.json();
         console.table(data.value);
       }
 
       async function namesFull() {
-        const endpoint = '/data-api/rest/Names';
+        const endpoint = '/rest/Names';
         const response = await fetch(endpoint);
         const data = await response.json();
         console.table(data.value);
       }
 
       async function populateDropdown() {
-        const endpoint = '/data-api/rest/Names';
+        const endpoint = '/rest/Names';
     
         try {
             const response = await fetch(endpoint);
