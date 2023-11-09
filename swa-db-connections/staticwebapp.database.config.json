@@ -20,7 +20,7 @@
     "host": {
       "mode": "production",
       "cors": {
-        "origins": ["http://localhost:4280"],
+        "origins": ["https://jolly-coast-0c44d6e0f.3.azurestaticapps.net/"],
         "allow-credentials": false
       },
       "authentication": {
