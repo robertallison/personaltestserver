@@ -166,7 +166,7 @@ async function populateEquipDropdown3() {
         const data = await response.json();
         console.log("Data received:", data);
 
-        const dropdown = document.getElementById('secondaryEqui1');
+        const dropdown = document.getElementById('secondaryEquip1');
         if (!Array.isArray(data.value)) {
             throw new Error('data.value is not an array');
         }
@@ -381,9 +381,70 @@ async function populateDownReasonDropdown4() {
 populateDownReasonDropdown4();
 
 
+// Function to populate the down reason dropdown
+async function populateRunConditions() {
+    const endpoint = '/data-api/rest/RunConditions';
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('runFactors');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populateRunConditions();
 
 
+// Function to populate the down reason dropdown
+async function populateRunConditions2() {
+    const endpoint = '/data-api/rest/RunConditions';
 
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('wetplantrunfactors');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populateRunConditions2();
 
 
 
