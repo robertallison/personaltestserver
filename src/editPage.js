@@ -459,7 +459,7 @@ async function populateSecondFeed() {
         const data = await response.json();
         console.log("Data received:", data);
 
-        const dropdown = document.getElementById('wetplantrunfactors');
+        const dropdown = document.getElementById('wetSource');
         if (!Array.isArray(data.value)) {
             throw new Error('data.value is not an array');
         }
