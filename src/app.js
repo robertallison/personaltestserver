@@ -1,3 +1,4 @@
+
 const API_URL = 'http://localhost:4280/rest/testNames';
 
 // Fetch data from the API and populate the dropdown
@@ -28,21 +29,21 @@ fetch(API_URL)
     //   }
 
       async function names() {
-        const endpoint = '/rest/Names';
+        const endpoint = '/data-api/rest/Names';
         const response = await fetch(endpoint);
         const data = await response.json();
         console.table(data.value);
       }
 
       async function namesFull() {
-        const endpoint = '/rest/Names';
+        const endpoint = '/data-api/rest/Names';
         const response = await fetch(endpoint);
         const data = await response.json();
         console.table(data.value);
       }
 
       async function populateDropdown() {
-        const endpoint = '/rest/Names';
+        const endpoint = '/data-api/rest/Names';
     
         try {
             const response = await fetch(endpoint);
@@ -77,9 +78,9 @@ async function handleSubmit() {
     const dropdown = document.getElementById('namesDropdown');
     const selectedName = dropdown.options[dropdown.selectedIndex].textContent;
 
-    // The endpoint to which you'll send the data for insertion into the database
-    // const submitEndpoint = 'https://jolly-coast-0c44d6e0f.3.azurestaticapps.net/rest/Output';
-    const submitEndpoint = '/data-api/rest/Output';
+    
+    const submitEndpoint = 'https://jolly-coast-0c44d6e0f.3.azurestaticapps.net/rest/Output';
+    // const submitEndpoint = '/data-api/rest/Output';
 
 
     try {
@@ -114,15 +115,8 @@ document.getElementById('timestamp').addEventListener('click', function() {
     console.log(currentTime.toLocaleTimeString());
 });
 
-//adding a comment at the end to push twice 3git a
 
 
-//have to keep adding this commit to the code so that it will render properly when i push it to github
-
-//have to work out how to cut down on costs by lowering the amount of push's
-
-//extra comment
-
-
-
-// last test code its 1 am
+function editPage() {
+    window.location.href = 'editPage.html';
+  }

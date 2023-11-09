@@ -1,77 +1,7 @@
-// document.getElementById('timestamp').addEventListener('click', function() {
-//     const currentTime = new Date();
-//     console.log(currentTime.toLocaleTimeString());
-// });
-
-// document.getElementById('timestamp').addEventListener('click', function() {
-//     const currentTime = new Date();
-//     console.log(currentTime.toLocaleTimeString());
-// });
-
-
-
-
-console.log("before populating dropdown");
-
-// Populates the dropdown for names
-async function populateDropdown() {
-    const endpoint = '/data-api/rest/Names';
-
-    try {
-        const response = await fetch(endpoint);
-
-        // Check that the response was successful
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log("Data received:", data); // Log the data to ensure it's correct
-
-        const dropdown = document.getElementById('namesDropdown');
-
-        // Check if the data.value is actually an array
-        if (!Array.isArray(data.value)) {
-            throw new Error('data.value is not an array');
-        }
-
-        // Clear any existing options
-        dropdown.innerHTML = '';
-
-        // Iterate over the array of names
-        data.value.forEach(item => {
-            const option = document.createElement('option');
-            option.value = item.id;
-            option.textContent = item.choice;
-            dropdown.appendChild(option);
-        });
-
-    } catch (error) {
-        console.error("Error fetching or processing data:", error);
-    }
-}
-
-populateDropdown();
-
-
-console.log("after calling populateDropdown function");
-
-const currentTime = new Date();
-console.log(currentTime.toLocaleTimeString());
-
-
+// Event listener for DOMContentLoaded to ensure the DOM is fully loaded before executing any script
 document.addEventListener("DOMContentLoaded", function() {
-    // Utility function to handle checkbox interactions
-    function setupCheckboxListener(checkboxId, textInputId) {
-        document.getElementById(checkboxId).addEventListener("change", function() {
-            let textInput = document.getElementById(textInputId);
-            if (this.checked) {
-                textInput.style.display = "block";
-            } else {
-                textInput.style.display = "none";
-            }
-        });
-    }
+    console.log("DOM fully loaded and parsed");
+    populateDropdown();  // Call the function to populate the names dropdown
 
     // Setup listeners for each checkbox-input pair
     setupCheckboxListener("checkboxOption1", "textInputOption1");
@@ -79,17 +9,29 @@ document.addEventListener("DOMContentLoaded", function() {
     setupCheckboxListener("checkboxOption3", "textInputOption3");
     setupCheckboxListener("checkboxOption4", "textInputOption4");
     setupCheckboxListener("checkboxOption5", "textInputOption5");
+
+    // Submit button event listener
+    document.getElementById("submitButton").addEventListener("click", function(event) {
+        event.preventDefault();  // Prevent default form submission
+
+        // Collect all form data
+        let formData = collectFormData();
+        
+        // Store data and redirect
+        storeData(formData);
+        window.location.href = "viewPage.html";
+    });
 });
 
-
-document.getElementById("submitButton").addEventListener("click", function(event) {
-    event.preventDefault();  // Prevent default form submission
-
-    let formData = {
+// Function to collect form data
+function collectFormData() {
+    const currentTime = new Date();
+    return {
+        // Retrieve values from the form inputs and dropdowns
         plant: document.getElementById("plantDropdown").value,
         date: document.getElementById("date").value,
         time: currentTime,
-        name: document.getElementById("nameDropdown").value,
+        name: document.getElementById("namesDropdown").value, // Corrected ID reference
         primaryFeed: document.getElementById("primaryFeed").value,
         blastDate: document.getElementById("blastDate").value,
         thirtyfive: document.querySelector("input[placeholder='Enter details for 35 Ton']").value,
@@ -122,17 +64,52 @@ document.getElementById("submitButton").addEventListener("click", function(event
         secondaryReason2: document.getElementById("secondaryReason2").value,
         wetplantrunfactors: document.getElementById("wetplantrunfactors").value,
     };
+}
 
-    storeData(formData);
-    
-    // Redirect
-    window.location.href = "viewPage.html";
-});
+// Function to populate the names dropdown
+async function populateDropdown() {
+    const endpoint = '/data-api/rest/Names';
 
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('namesDropdown');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+
+// Function to setup checkbox listener
+function setupCheckboxListener(checkboxId, textInputId) {
+    document.getElementById(checkboxId).addEventListener("change", function() {
+        let textInput = document.getElementById(textInputId);
+        if (this.checked) {
+            textInput.style.display = "block";
+        } else {
+            textInput.style.display = "none";
+        }
+    });
+}
+
+// Function to store form data in local storage
 function storeData(data) {
     localStorage.setItem("formData", JSON.stringify(data));
 }
-
-
-
-
