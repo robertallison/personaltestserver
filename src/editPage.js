@@ -166,7 +166,7 @@ async function populateEquipDropdown3() {
         const data = await response.json();
         console.log("Data received:", data);
 
-        const dropdown = document.getElementById('secondaryEquipment1');
+        const dropdown = document.getElementById('secondaryEqui1');
         if (!Array.isArray(data.value)) {
             throw new Error('data.value is not an array');
         }
@@ -198,7 +198,7 @@ async function populateEquipDropdown4() {
         const data = await response.json();
         console.log("Data received:", data);
 
-        const dropdown = document.getElementById('secondaryEquipment2');
+        const dropdown = document.getElementById('secondaryEquip2');
         if (!Array.isArray(data.value)) {
             throw new Error('data.value is not an array');
         }
@@ -218,6 +218,37 @@ async function populateEquipDropdown4() {
 populateEquipDropdown4();
 
 
+// Function to populate the feed source dropdown
+async function populatePrimaryFeedDropdown4() {
+    const endpoint = '/data-api/rest/PrimaryFeed';
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('primaryfeed');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populatePrimaryFeed();
 
 
 
