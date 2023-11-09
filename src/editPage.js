@@ -53,6 +53,7 @@ async function populateDropdown() {
         console.error("Error fetching or processing data:", error);
     }
 }
+populateDropdown();
 
 // Function to populate the plant dropdown
 async function populatePlantDropdown() {
@@ -84,7 +85,7 @@ async function populatePlantDropdown() {
         console.error("Error fetching or processing data:", error);
     }
 }
-populatePlantDropdown;
+populatePlantDropdown();
 
 // Function to collect form data
 function collectFormData() {
@@ -147,4 +148,4 @@ function storeData(data) {
     localStorage.setItem("formData", JSON.stringify(data));
 }
 
-console.log("push from 11:40am");
+console.log("push from 11:45am");
