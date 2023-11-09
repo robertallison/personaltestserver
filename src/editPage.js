@@ -485,10 +485,10 @@ function collectFormData() {
     const currentTime = new Date();
     return {
         // Retrieve values from the form inputs and dropdowns
+        name: document.getElementById("namesDropdown"), 
         plant: document.getElementById("plantDropdown").value,
         date: document.getElementById("date").value,
         time: currentTime,
-        name: document.getElementById("namesDropdown").value, // Corrected ID reference
         primaryFeed: document.getElementById("primaryFeed").value,
         blastDate: document.getElementById("blastDate").value,
         thirtyfive: document.querySelector("input[placeholder='Enter details for 35 Ton']").value,
