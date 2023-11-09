@@ -446,7 +446,37 @@ async function populateRunConditions2() {
 }
 populateRunConditions2();
 
+// Function to populate the down reason dropdown
+async function populateSecondFeed() {
+    const endpoint = '/data-api/rest/SecondFeed';
 
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Data received:", data);
+
+        const dropdown = document.getElementById('wetplantrunfactors');
+        if (!Array.isArray(data.value)) {
+            throw new Error('data.value is not an array');
+        }
+
+        dropdown.innerHTML = '';
+        data.value.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.choice;
+            dropdown.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error("Error fetching or processing data:", error);
+    }
+}
+populateSecondFeed();
 
 
 
