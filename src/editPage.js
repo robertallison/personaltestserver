@@ -486,8 +486,8 @@ function collectFormData() {
     return {
         // Retrieve values from the form inputs and dropdowns
         name: document.getElementById("namesDropdown").choice, 
-        plant: document.getElementById("plantDropdown").value,
-        date: document.getElementById("date").value,
+        plant: document.getElementById("plantDropdown"),
+        date: document.getElementById("date"),
         time: currentTime,
         primaryFeed: document.getElementById("primaryFeed").value,
         blastDate: document.getElementById("blastDate").value,
