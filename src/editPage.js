@@ -543,7 +543,8 @@ function setupCheckboxListener(checkboxId, textInputId) {
 
 // console.log("push from 11:45am");
 async function submitFormData(formData) {
-    const endpoint = '/Output'; // Replace with your server endpoint
+    // Endpoint for the 'Output' entity in your Azure Data API
+    const endpoint = 'http://https://jolly-coast-0c44d6e0f.3.azurestaticapps.net/rest/Output'; // Replace with your actual Azure Data API endpoint
 
     try {
         const response = await fetch(endpoint, {
@@ -561,13 +562,16 @@ async function submitFormData(formData) {
         const result = await response.json();
         console.log("Server response:", result);
         // Additional handling based on server response
+        alert('Data successfully submitted!'); // Notify user of successful submission
     } catch (error) {
         console.error("Error submitting data:", error);
+        alert('Error submitting data: ' + error.message); // Notify user of submission error
     }
 }
 
+
 // Event listener for form submission
-document.getElementById('yourFormId').addEventListener('submit', function(event) {
+document.getElementById('FormId').addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = collectFormData();
     submitFormData(formData);
@@ -575,7 +579,7 @@ document.getElementById('yourFormId').addEventListener('submit', function(event)
 
 
 
-const formElement = document.getElementById('yourFormId');
+const formElement = document.getElementById('FormId');
 
 if (formElement) {
     formElement.addEventListener('submit', function(event) {
