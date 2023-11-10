@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let formData = collectFormData();
         
         // Store data and redirect
-        storeData(formData);
+        // storeData(formData);
         window.location.href = "viewPage.html";
     });
 });
