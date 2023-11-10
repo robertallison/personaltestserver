@@ -537,8 +537,38 @@ function setupCheckboxListener(checkboxId, textInputId) {
 }
 
 // Function to store form data in local storage
-function storeData(data) {
-    localStorage.setItem("formData", JSON.stringify(data));
+// function storeData(data) {
+//     localStorage.setItem("formData", JSON.stringify(data));
+// }
+
+// console.log("push from 11:45am");
+async function submitFormData(formData) {
+    const endpoint = '/Output'; // Replace with your server endpoint
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log("Server response:", result);
+        // Additional handling based on server response
+    } catch (error) {
+        console.error("Error submitting data:", error);
+    }
 }
 
-console.log("push from 11:45am");
+// Event listener for form submission
+document.getElementById('yourFormId').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = collectFormData();
+    submitFormData(formData);
+});
