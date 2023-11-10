@@ -572,3 +572,17 @@ document.getElementById('yourFormId').addEventListener('submit', function(event)
     const formData = collectFormData();
     submitFormData(formData);
 });
+
+
+
+const formElement = document.getElementById('yourFormId');
+
+if (formElement) {
+    formElement.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = collectFormData();
+        submitFormData(formData);
+    });
+} else {
+    console.error("Form element not found");
+}
