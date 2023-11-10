@@ -544,7 +544,7 @@ function setupCheckboxListener(checkboxId, textInputId) {
 // console.log("push from 11:45am");
 async function submitFormData(formData) {
     // Endpoint for the 'Output' entity in your Azure Data API
-    const endpoint = 'http://https://jolly-coast-0c44d6e0f.3.azurestaticapps.net/rest/Output'; // Replace with your actual Azure Data API endpoint
+    const endpoint = 'http://localhost:4280/rest/Output'; // Replace with your actual Azure Data API endpoint
 
     try {
         const response = await fetch(endpoint, {
