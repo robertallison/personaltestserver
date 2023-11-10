@@ -485,7 +485,7 @@ function collectFormData() {
     const currentTime = new Date();
     return {
         // Retrieve values from the form inputs and dropdowns
-        name: document.getElementById("namesDropdown"), 
+        name: document.getElementById("namesDropdown").choice, 
         plant: document.getElementById("plantDropdown").value,
         date: document.getElementById("date").value,
         time: currentTime,
