@@ -498,7 +498,7 @@ function collectFormData() {
         selection_date: document.getElementById("date").value, 
         // selection_name: "",
         primary_feed_source: document.getElementById("primaryFeed").value, // Primary Raw Feed Source
-        raw_feed_source_blast: document.getElementById("blastDate").value, // Raw Feed Source - Blast Date
+        raw_feed_source_blast: document.getElementById("blastDate").Date, // Raw Feed Source - Blast Date
 
         // Truck Size/Loads Hauled to Primary
         num_primary_loads_35T: document.getElementById("checkboxOption1").checked ? parseInt(document.getElementById("textInputOption1").value) : 0,
@@ -524,7 +524,7 @@ function collectFormData() {
 
         run_condition_issues: document.getElementById("runFactors").value,
 
-        secondary_wet_plant: document.getElementById("secondaryplantDropdown").value === "Yes" ? 1 : 0, 
+        // secondary_wet_plant: document.getElementById("secondaryplantDropdown").value === "Yes" ? 1 : 0, 
         wet_plt_feed_source: document.getElementById("wetSource").value,
 
         wet_plt_produced_tons: parseInt(document.querySelector("input[placeholder='Tons Produced Wet Plant']").value),
