@@ -1,5 +1,5 @@
 window.onload = function() {
-    fetch('/path-to-your-endpoint')
+    fetch('/data-api/rest/Output')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
