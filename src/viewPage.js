@@ -6,7 +6,7 @@ window.onload = function() {
 
     // Using an array and loop to optimize the code
     const fields = [
-        'name', 'plant', 'date', 'primaryFeed', 'blastDate', 
+        'time', 'name', 'plant', 'date', 'primaryFeed', 'blastDate', 
         'thirtyfive', 'forty', 'fifty', 'sixty', 'seventy', 
         'tonsPrimary', 'tonsDryPlant', 'dryPlantScheduledHours', 'dryPlantRunHours', 
         'nonOperationalHours', 'nonOperationalComments', 'primaryEquipment1', 'primaryReason1', 
