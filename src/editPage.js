@@ -15,14 +15,21 @@ document.addEventListener("DOMContentLoaded", function() {
     // Submit button event listener
     document.getElementById("submitButton").addEventListener("click", function(event) {
         event.preventDefault();  // Prevent default form submission
-
+    
         // Collect all form data
         let formData = collectFormData();
         
-        // Store data and redirect
-        // storeData(formData);
-        window.location.href = "viewPage.html";
+        // Submit the data and then redirect on success
+        submitFormData(formData)
+            .then(() => {
+                window.location.href = "viewPage.html";  // Redirect only on successful submission
+            })
+            .catch(error => {
+                console.error("Submission failed:", error);
+                // Handle error, maybe display a message to the user
+            });
     });
+    
 });
 
 // Function to populate the names dropdown
@@ -560,38 +567,23 @@ function setupCheckboxListener(checkboxId, textInputId) {
 async function submitFormData(formData) {
     const endpoint = 'http://localhost:4280/rest/Output'; 
 
-    try {
-        const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
+    const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    });
 
-        console.log("Response received:", response); // Log the entire response object
-
-        if (!response.ok) {
-            const errorBody = await response.text(); // Attempt to read the error body
-            throw new Error(`HTTP error! status: ${response.status}. Server message: ${errorBody}`);
-        }
-
-        const result = await response.json();
-        console.log("Server response:", result);
-        alert('Data successfully submitted!');
-    } catch (error) {
-        console.error("Error submitting data:", error);
-        if (error.response) {
-            console.error("Error data:", error.response.data);
-            console.error("Error status:", error.response.status);
-            console.error("Error headers:", error.response.headers);
-        } else if (error.request) {
-            console.error("No response received:", error.request);
-        } else {
-            console.error("Error message:", error.message);
-        }
-        alert('Error submitting data: ' + error.message);
+    if (!response.ok) {
+        const errorBody = await response.text(); // Attempt to read the error body
+        throw new Error(`HTTP error! status: ${response.status}. Server message: ${errorBody}`);
     }
+
+    const result = await response.json();
+    console.log("Server response:", result);
+    alert('Data successfully submitted!');
+    return result; // Resolve the promise with the result
 }
 
 
