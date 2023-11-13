@@ -16,9 +16,9 @@ window.onload = function() {
 function populateTable(data) {
     const tableBody = document.querySelector("#resultTable tbody");
 
-    // Check if data is an array before trying to iterate
-    if (Array.isArray(data)) {
-        data.forEach(rowData => {
+    // Check if data.value is an array before trying to iterate
+    if (Array.isArray(data.value)) {
+        data.value.forEach(rowData => {
             const row = document.createElement("tr");
             for (const key in rowData) {
                 let cell = document.createElement("td");
@@ -33,6 +33,6 @@ function populateTable(data) {
             tableBody.appendChild(row);
         });
     } else {
-        console.error('Data is not an array:', data);
+        console.error('Data.value is not an array:', data);
     }
 }
