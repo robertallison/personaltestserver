@@ -486,8 +486,8 @@ function collectFormData() {
     return {
         // Retrieve values from the form inputs and dropdowns
         entry_timestamp: new Date().toISOString(), // Current timestamp in ISO format
-        user_name: document.getElementById("userNameInput").input,
-        plant: document.getElementById("plantDropdown".input),
+        user_name: document.getElementById("userNameInput"),
+        plant: document.getElementById("plantDropdown"),
         selection_date: document.getElementById("selectionDateInput"), // Format: 'YYYY-MM-DD'
         selection_name: document.getElementById("selectionNameInput"),
         primary_feed_source: document.getElementById("primaryFeedSourceInput"),
