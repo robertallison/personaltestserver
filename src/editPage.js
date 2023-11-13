@@ -486,9 +486,9 @@ function collectFormData() {
     return {
         // Retrieve values from the form inputs and dropdowns
         entry_timestamp: new Date().toISOString(), // Current timestamp in ISO format
-        user_name: document.getElementById("namesDropdown").value, // Your name from dropdown
-        plant: document.getElementById("plantDropdown").value, // Plant from dropdown
-        selection_date: document.getElementById("date").value, // Today's Date
+        user_name: document.getElementById("namesDropdown").value, 
+        plant: document.getElementById("plantDropdown").value, 
+        selection_date: document.getElementById("date").value, 
         // selection_name: "",
         primary_feed_source: document.getElementById("primaryFeed").value, // Primary Raw Feed Source
         raw_feed_source_blast: document.getElementById("blastDate").value, // Raw Feed Source - Blast Date
@@ -517,7 +517,7 @@ function collectFormData() {
 
         run_condition_issues: document.getElementById("runFactors").value,
 
-        secondary_wet_plant: document.getElementById("secondaryplantDropdown").value === "Yes" ? 1 : 0, // Assuming this is a dropdown with "Yes" or "No"
+        secondary_wet_plant: document.getElementById("secondaryplantDropdown").value === "Yes" ? 1 : 0, 
         wet_plt_feed_source: document.getElementById("wetSource").value,
 
         wet_plt_produced_tons: parseInt(document.querySelector("input[placeholder='Tons Produced Wet Plant']").value),
