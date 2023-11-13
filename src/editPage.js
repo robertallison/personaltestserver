@@ -565,7 +565,7 @@ function setupCheckboxListener(checkboxId, textInputId) {
 
 // console.log("push from 11:45am");
 async function submitFormData(formData) {
-    const endpoint = 'http://localhost:4280/rest/Output'; 
+    const endpoint = '/data-api/rest/Output'; 
 
     const response = await fetch(endpoint, {
         method: 'POST',
