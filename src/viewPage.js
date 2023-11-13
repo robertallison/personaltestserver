@@ -1,37 +1,38 @@
 window.onload = function() {
-    fetch('/data-api/rest/Output')
+    fetch('/path-to-your-endpoint')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         return response.json();
     })
-    .then(data => populateTable(data))
+    .then(data => {
+        console.log("Received data:", data); // Debugging line
+        populateTable(data);
+    })
     .catch(error => console.error('Fetching data failed:', error));
 };
 
 function populateTable(data) {
     const tableBody = document.querySelector("#resultTable tbody");
 
-    data.forEach(rowData => {
-        const row = document.createElement("tr");
-
-        // Assuming rowData is an object with keys matching your table columns
-        for (const key in rowData) {
-            let cell = document.createElement("td");
-            cell.textContent = rowData[key] || 'N/A';
-            row.appendChild(cell);
-        }
-
-        // Add any additional row functionality here
-        row.addEventListener("click", function() {
-            for(let cell of this.cells) {
-                cell.classList.toggle("red-text");
+    // Check if data is an array before trying to iterate
+    if (Array.isArray(data)) {
+        data.forEach(rowData => {
+            const row = document.createElement("tr");
+            for (const key in rowData) {
+                let cell = document.createElement("td");
+                cell.textContent = rowData[key] || 'N/A';
+                row.appendChild(cell);
             }
+            row.addEventListener("click", function() {
+                for(let cell of this.cells) {
+                    cell.classList.toggle("red-text");
+                }
+            });
+            tableBody.appendChild(row);
         });
-
-        tableBody.appendChild(row);
-    });
+    } else {
+        console.error('Data is not an array:', data);
+    }
 }
-
-
