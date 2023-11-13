@@ -13,16 +13,16 @@ document.addEventListener("DOMContentLoaded", function() {
     setupCheckboxListener("checkboxOption5", "textInputOption5");
 
     // Submit button event listener
-    document.getElementById("submitButton").addEventListener("click", function(event) {
-        event.preventDefault();  // Prevent default form submission
+    // document.getElementById("submitButton").addEventListener("click", function(event) {
+    //     event.preventDefault();  // Prevent default form submission
 
-        // Collect all form data
-        let formData = collectFormData();
+    //     // Collect all form data
+    //     let formData = collectFormData();
         
-        // Store data and redirect
-        // storeData(formData);
-        window.location.href = "viewPage.html";
-    });
+    //     // Store data and redirect
+    //     // storeData(formData);
+    //     window.location.href = "viewPage.html";
+    // });
 });
 
 // Function to populate the names dropdown
@@ -559,7 +559,7 @@ function setupCheckboxListener(checkboxId, textInputId) {
 // console.log("push from 11:45am");
 async function submitFormData(formData) {
     // Endpoint for the 'Output' entity in your Azure Data API
-    const endpoint = 'http://localhost:4280/rest/Output'; // Replace with your actual Azure Data API endpoint
+    const endpoint = 'http://localhost:4280/rest/Output'; 
 
     try {
         const response = await fetch(endpoint, {
