@@ -13,16 +13,16 @@ document.addEventListener("DOMContentLoaded", function() {
     setupCheckboxListener("checkboxOption5", "textInputOption5");
 
     // Submit button event listener
-    // document.getElementById("submitButton").addEventListener("click", function(event) {
-    //     event.preventDefault();  // Prevent default form submission
+    document.getElementById("submitButton").addEventListener("click", function(event) {
+        event.preventDefault();  // Prevent default form submission
 
-    //     // Collect all form data
-    //     let formData = collectFormData();
+        // Collect all form data
+        let formData = collectFormData();
         
-    //     // Store data and redirect
-    //     // storeData(formData);
-    //     window.location.href = "viewPage.html";
-    // });
+        // Store data and redirect
+        // storeData(formData);
+        window.location.href = "viewPage.html";
+    });
 });
 
 // Function to populate the names dropdown
@@ -558,7 +558,6 @@ function setupCheckboxListener(checkboxId, textInputId) {
 
 // console.log("push from 11:45am");
 async function submitFormData(formData) {
-    // Endpoint for the 'Output' entity in your Azure Data API
     const endpoint = 'http://localhost:4280/rest/Output'; 
 
     try {
@@ -570,19 +569,31 @@ async function submitFormData(formData) {
             body: JSON.stringify(formData),
         });
 
+        console.log("Response received:", response); // Log the entire response object
+
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorBody = await response.text(); // Attempt to read the error body
+            throw new Error(`HTTP error! status: ${response.status}. Server message: ${errorBody}`);
         }
 
         const result = await response.json();
         console.log("Server response:", result);
-        // Additional handling based on server response
-        alert('Data successfully submitted!'); // Notify user of successful submission
+        alert('Data successfully submitted!');
     } catch (error) {
         console.error("Error submitting data:", error);
-        alert('Error submitting data: ' + error.message); // Notify user of submission error
+        if (error.response) {
+            console.error("Error data:", error.response.data);
+            console.error("Error status:", error.response.status);
+            console.error("Error headers:", error.response.headers);
+        } else if (error.request) {
+            console.error("No response received:", error.request);
+        } else {
+            console.error("Error message:", error.message);
+        }
+        alert('Error submitting data: ' + error.message);
     }
 }
+
 
 
 // Event listener for form submission
