@@ -1,39 +1,37 @@
 window.onload = function() {
-    const data = JSON.parse(localStorage.getItem("formData"));
-
-    const tableBody = document.querySelector("#resultTable tbody");
-    const row = document.createElement("tr");
-
-    // Using an array and loop to optimize the code
-    const fields = [
-        'time', 'name', 'plant', 'date', 'primaryFeed', 'blastDate', 
-        'thirtyfive', 'forty', 'fifty', 'sixty', 'seventy', 
-        'tonsPrimary', 'tonsDryPlant', 'dryPlantScheduledHours', 'dryPlantRunHours', 
-        'nonOperationalHours', 'nonOperationalComments', 'primaryEquipment1', 'primaryReason1', 
-        'primaryadditionaldetails', 'primaryEquipment2', 'primaryReason2', 'primaryadditionaldetails2', 
-        'runFactors', 'secondaryplantDropdown', 'wetSource', 'tonsProducedWetPlant', 
-        'wetPlantScheduledHours', 'wetPlantOperatingHours', 'nonOperationalDowntime', 
-        'nonOperationalDowntimeComments', 'secondaryEquip1', 'secondaryReason1', 'secondaryadditionaldetails', 
-        'secondaryEquip2', 'secondaryReason2', 'wetplantrunfactors'
-    ];
-    
-
-    fields.forEach(field => {
-        let cell = document.createElement("td");
-        cell.textContent = data[field] || 'N/A'; 
-        row.appendChild(cell);
-    });
-    
-
-    // Adding click event to the row
-    row.addEventListener("click", function() {
-        // Toggle the text color for each cell in the row
-        for(let cell of this.cells) {
-            cell.classList.toggle("red-text");
+    fetch('/data-api/rest/Output')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    });
+        return response.json();
+    })
+    .then(data => populateTable(data))
+    .catch(error => console.error('Fetching data failed:', error));
+};
 
-    tableBody.appendChild(row);
+function populateTable(data) {
+    const tableBody = document.querySelector("#resultTable tbody");
+
+    data.forEach(rowData => {
+        const row = document.createElement("tr");
+
+        // Assuming rowData is an object with keys matching your table columns
+        for (const key in rowData) {
+            let cell = document.createElement("td");
+            cell.textContent = rowData[key] || 'N/A';
+            row.appendChild(cell);
+        }
+
+        // Add any additional row functionality here
+        row.addEventListener("click", function() {
+            for(let cell of this.cells) {
+                cell.classList.toggle("red-text");
+            }
+        });
+
+        tableBody.appendChild(row);
+    });
 }
 
 
