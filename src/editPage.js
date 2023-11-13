@@ -493,8 +493,8 @@ function collectFormData() {
     return {
         // Retrieve values from the form inputs and dropdowns
         // entry_timestamp: new Date().toISOString(), 
-        user_name: document.getElementById("namesDropdown").selected, 
-        plant: document.getElementById("plantDropdown").selected, 
+        user_name: document.getElementById("namesDropdown").options[document.getElementById("namesDropdown").selectedIndex].text,
+        plant: document.getElementById("plantDropdown").value, 
         selection_date: document.getElementById("date").Date, 
         // selection_name: "",
         primary_feed_source: document.getElementById("primaryFeed").value, // Primary Raw Feed Source
