@@ -491,59 +491,56 @@ populateSecondFeed();
 function collectFormData() {
     const currentTime = new Date();
     return {
-        // Retrieve values from the form inputs and dropdowns
-        // entry_timestamp: new Date().toISOString(), 
-        user_name: document.getElementById("namesDropdown").options[document.getElementById("namesDropdown").selectedIndex].text,
-        plant: document.getElementById("plantDropdown").value, 
-        selection_date: document.getElementById("date").Date, 
-        // selection_name: "",
-        primary_feed_source: document.getElementById("primaryFeed").value, // Primary Raw Feed Source
-        raw_feed_source_blast: document.getElementById("blastDate").Date, // Raw Feed Source - Blast Date
-
-        // Truck Size/Loads Hauled to Primary
-        num_primary_loads_35T: document.getElementById("checkboxOption1").checked ? parseInt(document.getElementById("textInputOption1").value) : 0,
-        num_primary_loads_40T: document.getElementById("checkboxOption2").checked ? parseInt(document.getElementById("textInputOption2").value) : 0,
-        num_primary_loads_50T: document.getElementById("checkboxOption3").checked ? parseInt(document.getElementById("textInputOption3").value) : 0,
-        num_primary_loads_60T: document.getElementById("checkboxOption4").checked ? parseInt(document.getElementById("textInputOption4").value) : 0,
-        num_primary_loads_70T: document.getElementById("checkboxOption5").checked ? parseInt(document.getElementById("textInputOption5").value) : 0,
-
-        primary_crushed_tons: parseInt(document.querySelector("input[placeholder='Tons crushed Primary']").value),
-        dry_plt_produced_tons: parseInt(document.querySelector("input[placeholder='Tons crushed Dry Plant']").value),
-        dry_plt_scheduled_hrs: parseFloat(document.querySelector("input[placeholder='Dry Plant Scheduled Hours']").value),
-        dry_plt_run_hrs: parseFloat(document.querySelector("input[placeholder='Dry Plant Run Hours']").value),
-        dry_plt_nonop_downtime_hrs: parseFloat(document.querySelector("input[placeholder='Non Operational Downtime Hours']").value),
-        dry_plt_nonop_downtime_comments: document.querySelector("input[placeholder='Non operational comments']").value,
-
-        primary_down_equipment: document.getElementById("primaryEquipment1").value,
-        primary_down_reason: document.getElementById("primaryReason1").value,
-        primary_addtl_details: document.querySelector("input[placeholder='Additional Details 1']").value,
-
-        primary_down_equipment_2: document.getElementById("primaryEquipment2").value,
-        primary_down_reason_2: document.getElementById("primaryReason2").value,
-        primary_addtl_details_2: document.querySelector("input[placeholder='Additional Details 2']").value,
-
-        run_condition_issues: document.getElementById("runFactors").value,
-
-        // secondary_wet_plant: document.getElementById("secondaryplantDropdown").value === "Yes" ? 1 : 0, 
-        wet_plt_feed_source: document.getElementById("wetSource").value,
-
-        wet_plt_produced_tons: parseInt(document.querySelector("input[placeholder='Tons Produced Wet Plant']").value),
-        wet_plt_scheduled_hrs: parseFloat(document.querySelector("input[placeholder='Wet Plant Scheduled Hours']").value),
-        wet_plt_op_hrs: parseFloat(document.querySelector("input[placeholder='Wet Plant Operating Hours']").value),
-        wet_plt_nonop_downtime_hrs: parseFloat(document.querySelector("input[placeholder='Non Operational Downtime']").value),
-        wet_plt_nonop_downtime_comments: document.querySelector("input[placeholder='Non Operational Downtime Comments']").value,
-
-        secondary_down_equipment: document.getElementById("secondaryEquip1").value,
-        secondary_down_reason: document.getElementById("secondaryReason1").value,
-        secondary_addtl_details: document.querySelector("input[placeholder='Additional Details']").value,
-
-        secondary_down_equipment_2: document.getElementById("secondaryEquip2").value,
-        secondary_down_reason_2: document.getElementById("secondaryReason2").value,
-        secondary_addtl_details_2: document.querySelector("input[placeholder='Additional Details']").value,
-
-        wet_plt_run_conditon_issues: document.getElementById("wetplantrunfactors").value
+            entry_timestamp: new Date().toISOString(),
+            user_name: document.getElementById("namesDropdown").options[document.getElementById("namesDropdown").selectedIndex].text,
+            plant: document.getElementById("plantDropdown").options[document.getElementById("plantDropdown").selectedIndex].text,
+            selection_date: document.getElementById("date").value,
+            primary_feed_source: document.getElementById("primaryFeed").options[document.getElementById("primaryFeed").selectedIndex].text,
+            raw_feed_source_blast: document.getElementById("blastDate").value,
+    
+            num_primary_loads_35T: document.getElementById("checkboxOption1").checked ? parseInt(document.getElementById("textInputOption1").value) : 0,
+            num_primary_loads_40T: document.getElementById("checkboxOption2").checked ? parseInt(document.getElementById("textInputOption2").value) : 0,
+            num_primary_loads_50T: document.getElementById("checkboxOption3").checked ? parseInt(document.getElementById("textInputOption3").value) : 0,
+            num_primary_loads_60T: document.getElementById("checkboxOption4").checked ? parseInt(document.getElementById("textInputOption4").value) : 0,
+            num_primary_loads_70T: document.getElementById("checkboxOption5").checked ? parseInt(document.getElementById("textInputOption5").value) : 0,
+    
+            primary_crushed_tons: parseInt(document.querySelector("input[placeholder='Tons crushed Primary']").value),
+            dry_plt_produced_tons: parseInt(document.querySelector("input[placeholder='Tons crushed Dry Plant']").value),
+            dry_plt_scheduled_hrs: parseFloat(document.querySelector("input[placeholder='Dry Plant Scheduled Hours']").value),
+            dry_plt_run_hrs: parseFloat(document.querySelector("input[placeholder='Dry Plant Run Hours']").value),
+            dry_plt_nonop_downtime_hrs: parseFloat(document.querySelector("input[placeholder='Non Operational Downtime Hours']").value),
+            dry_plt_nonop_downtime_comments: document.querySelector("input[placeholder='Non operational comments']").value,
+    
+            primary_down_equipment: document.getElementById("primaryEquipment1").options[document.getElementById("primaryEquipment1").selectedIndex].text,
+            primary_down_reason: document.getElementById("primaryReason1").options[document.getElementById("primaryReason1").selectedIndex].text,
+            primary_addtl_details: document.querySelector("input[placeholder='Additional Details 1']").value,
+    
+            primary_down_equipment_2: document.getElementById("primaryEquipment2").options[document.getElementById("primaryEquipment2").selectedIndex].text,
+            primary_down_reason_2: document.getElementById("primaryReason2").options[document.getElementById("primaryReason2").selectedIndex].text,
+            primary_addtl_details_2: document.querySelector("input[placeholder='Additional Details 2']").value,
+    
+            run_condition_issues: document.getElementById("runFactors").options[document.getElementById("runFactors").selectedIndex].text,
+    
+            wet_plt_feed_source: document.getElementById("wetSource").options[document.getElementById("wetSource").selectedIndex].text,
+    
+            wet_plt_produced_tons: parseInt(document.querySelector("input[placeholder='Tons Produced Wet Plant']").value),
+            wet_plt_scheduled_hrs: parseFloat(document.querySelector("input[placeholder='Wet Plant Scheduled Hours']").value),
+            wet_plt_op_hrs: parseFloat(document.querySelector("input[placeholder='Wet Plant Operating Hours']").value),
+            wet_plt_nonop_downtime_hrs: parseFloat(document.querySelector("input[placeholder='Non Operational Downtime']").value),
+            wet_plt_nonop_downtime_comments: document.querySelector("input[placeholder='Non Operational Downtime Comments']").value,
+    
+            secondary_down_equipment: document.getElementById("secondaryEquip1").options[document.getElementById("secondaryEquip1").selectedIndex].text,
+            secondary_down_reason: document.getElementById("secondaryReason1").options[document.getElementById("secondaryReason1").selectedIndex].text,
+            secondary_addtl_details: document.querySelector("input[placeholder='Additional Details']").value,
+    
+            secondary_down_equipment_2: document.getElementById("secondaryEquip2").options[document.getElementById("secondaryEquip2").selectedIndex].text,
+            secondary_down_reason_2: document.getElementById("secondaryReason2").options[document.getElementById("secondaryReason2").selectedIndex].text,
+            secondary_addtl_details_2: document.querySelector("input[placeholder='Additional Details']").value,
+    
+            wet_plt_run_conditon_issues: document.getElementById("wetplantrunfactors").options[document.getElementById("wetplantrunfactors").selectedIndex].text
+        };
     };
-}
+
 
 
 // Function to setup checkbox listener
