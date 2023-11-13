@@ -487,10 +487,10 @@ function collectFormData() {
         // Retrieve values from the form inputs and dropdowns
         user_name: document.getElementById("namesDropdown").choice, 
         plant: document.getElementById("plantDropdown"),
-        selection_date: document.getElementById("date"),
+        selection_date: document.getElementById("date").date,
         time: currentTime,
         primary_feed_source: document.getElementById("primaryFeed").value,
-        blastDate: document.getElementById("blastDate").value,
+        raw_feed_source_blast: document.getElementById("blastDate").value,
         num_primary_loads_35T: document.querySelector("input[placeholder='Enter details for 35 Ton']").value,
         num_primary_loads_40T: document.querySelector("input[placeholder='Enter details for 40 Ton']").value,
         num_primary_loads_50T: document.querySelector("input[placeholder='Enter details for 50 Ton']").value,
